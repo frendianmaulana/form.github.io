@@ -213,7 +213,7 @@
                 <tr>
                     <td>
                         <button class="btn btn-danger" type="button" onclick="capture()"><i
-                                class="bi bi-camera-fill"></i>Take Screenshot</button>
+                                class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button>
                     </td>
                 </tr>
             </div>
@@ -239,8 +239,18 @@
 </script>
 <script type="text/javascript">
     function capture() {
-        html2canvas(document.getElementById("container")).then(function (canvas) { // Mengambil tangkapan layar
-            document.body.appendChild(canvas); // Menampilkan gambar pada halaman web
+        var elemen = document.getElementById("container");
+
+        // Menggunakan fungsi `html2canvas` untuk mengambil tangkapan layar
+        html2canvas(elemen).then(function (canvas) {
+            // Mengonversi tangkapan layar menjadi gambar
+            var gambar = canvas.toDataURL();
+
+            // Membuat elemen `a` untuk menampilkan gambar dan mengunduhnya
+            var link = document.createElement('a');
+            link.href = gambar;
+            link.download = 'screenshot.png';
+            link.click();
         });
     }
 </script>
