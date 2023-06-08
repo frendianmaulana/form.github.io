@@ -12,7 +12,6 @@
 
 <style>
     body {
-        background-color: aqua;
         font-family: "fira code";
     }
 
@@ -27,27 +26,62 @@
         filter: blur(8.5px);
     }
 
-    img img {
-        box-shadow: 8px 2px 5px gray;
+    img {
+        box-shadow: 9px 2px 8px gray;
+    }
+
+    input textarea {
+        font-weight: 1000;
     }
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-lg" style="background-color: var(--bs-body-bg); color: var(--bs-emphasis-color);">
+        <div class="container">
+            <ul class="nav justify-content-center ms-auto">
+                <li class=" nav-item dropdown">
+                    <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        data-bs-reference="parent">
+                        <i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item d-flex align-items-center" type="button"
+                                data-bs-theme-value="light">
+                                <i class="bi bi-sun-fill me-1 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                                Light
+                            </button>
+                        </li>
+                        <li><button class="dropdown-item d-flex align-items-center" type="button"
+                                data-bs-theme-value="dark">
+                                <i class="bi bi-moon-fill me-1 opacity-50" data-theme-icon="bi-moon-fill"></i>
+                                Dark
+                            </button></li>
+                        <li><button class="dropdown-item d-flex align-items-center" type="button"
+                                data-bs-theme-value="auto">
+                                <i class="bi bi-circle-half me-1 opacity-50" data-theme-icon="bi-circle-half"></i>
+                                Auto
+                            </button></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="mt-4 container">
         <div class="row justify-content-center">
             <div class="col-sm-7">
                 <div id="container">
                     <h1 class="fs-1 text-center">Biodata Diri</h1>
-                    <img src="#" id="gambar" alt="Foto Saya" class="img_size img-thumbnail mb-2 mx-auto d-block">
-                    <table class="table table-primary table-borderless">
-                        <div class="row g-2 align-items-center">
+                    <img src="#" id="gambar" alt="Foto Saya" class="img_size img-thumbnail mb-3 mx-auto d-block">
+                    <table class="table table-hover table-responsive">
+                        <div class="row mt-4 g-2 align-items-center">
                             <div class="col">
                                 <tr>
                                     <td class="form-label">NIM</td>
                                     <td>:</td>
                                     <td>
-                                        <input class="form-control" type="text" name=NIM
-                                            placeholder="Masukkan NIM Anda">
+                                        <input class="form-control"
+                                            style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                            type="text" name=NIM placeholder="Masukkan NIM Anda">
                                     </td>
                                 </tr>
                             </div>
@@ -56,22 +90,26 @@
                             <td>Nama</td>
                             <td>:</td>
                             <td>
-                                <input class="form-control" type="text" name="" size=30
-                                    placeholder="Masukkan nama anda ">
+                                <input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type="text" name="" size=30 placeholder="Masukkan nama anda ">
                             </td>
                         </tr>
 
                         <td>No Telepon</td>
                         <td>:</td>
                         <td>
-                            <input class="form-control" type="text" name="" size=30
-                                placeholder="Masukkan No yang masih aktif">
+                            <input class="form-control"
+                                style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                type="text" name="telpon" size=30 placeholder="Masukkan No yang masih aktif">
                         </td>
 
                         <tr>
                             <td>Kelas</td>
                             <td>:</td>
-                            <td><select class="form-select-sm form-select" name="kelas">
+                            <td><select class="form-select-sm form-select"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    name="kelas">
                                     <option name="kelas">Pilih Salah Satu</option>
                                     <option name="kelas">A</option>
                                     <option name="kelas">B</option>
@@ -86,7 +124,9 @@
                         <tr>
                             <td>Semester</td>
                             <td>:</td>
-                            <td><select class="form-select-sm form-select" name=semester>
+                            <td><select class="form-select-sm form-select"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    name=semester>
                                     <option name="semester">Pilih Salah Satu</option>
                                     <option name="semester">1</option>
                                     <option name="semester">2</option>
@@ -100,9 +140,10 @@
                         <tr>
                             <td>Umur</td>
                             <td>:</td>
-                            <td><input class="form-control" type="text" name="" size="2"
-                                    placeholder="Masukkan Umur anda">
-                                <p class="fw-bolder"><span class="text-danger">*&nbsp;</span>Contoh: 22 Tahun</p>
+                            <td><input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type="text" name="" size="2" placeholder="Masukkan Umur anda">
+                                <small class="fw-bolder"><span class="text-danger">*&nbsp;</span>Contoh: 22 Tahun</small>
                             </td>
                         </tr>
 
@@ -111,16 +152,18 @@
                             <td>:</td>
                             <td>
                                 <input class="form-check-input" type="radio" name="Jenis Kelamin"
-                                    value="Laki-laki">Laki-laki
+                                    value="Laki-laki">&nbsp;Laki-laki
                                 <input class="form-check-input" type="radio" name="Jenis Kelamin"
-                                    value="Perempuan">Perempuan
+                                    value="Perempuan">&nbsp;Perempuan
                             </td>
                         </tr>
 
                         <tr>
                             <td>Agama</td>
                             <td>:</td>
-                            <td><select class="form-select-sm form-select" name="agama">
+                            <td><select class="form-select-sm form-select"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    name="agama">
                                     <option name="agama">Pilih Salah Satu</option>
                                     <option name="agama">Islam</option>
                                     <option name="agama">Kristen</option>
@@ -136,14 +179,20 @@
                             <td>Tempat, Tanggal Lahir</td>
                             <td>:</td>
                             <td>
-                                <input class="form-control" type="text" name=tempat size=10 placeholder="Tempat lahir">
-                                <input class="form-control" type="date" name="kalender" id="kalender">
+                                <input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type="text" name=tempat size=10 placeholder="Tempat lahir">
+                                <input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type="date" name="kalender" id="kalender">
                         </tr>
 
                         <tr>
                             <td>Jurusan</td>
                             <td>:</td>
-                            <td><select class="form-select form-select-sm" name="jrs">
+                            <td><select class="form-select form-select-sm"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    name="jrs">
                                     <option name="jrs">Pilih Salah Satu</option>
                                     <option name="jrs">D3 Teknik Mesin</option>
                                     <option name="jrs">D4 Teknik Informatika</option>
@@ -159,8 +208,12 @@
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td><input class="form-control" type="email" name="" placeholder="Masukkan email anda">
-                                <select class="form-select form-select-sm" name="email">
+                            <td><input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type="email" name="" placeholder="Masukkan email anda">
+                                <select class="form-select form-select-sm"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    name="email">
                                     <option name="email">Pilih Salah Satu</option>
                                     <option name="email">@gmail.com</option>
                                     <option name="email">@yahoo.com</option>
@@ -174,13 +227,17 @@
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
-                            <td><textarea class="form-control" cols="20" rows="4" name=alamat></textarea></td>
+                            <td><textarea class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    cols="20" rows="4" name=alamat></textarea></td>
                         </tr>
 
                         <tr>
                             <td>Hobi</td>
                             <td>:</td>
-                            <td><input class="form-control" type=text name=""></td>
+                            <td><input class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    type=text name=""></td>
                         </tr>
 
                         <tr>
@@ -188,10 +245,13 @@
                             <td>:</td>
                             <td>
                                 <div class="input-group mb-3">
-                                    <label class="input-group-text"><i class="bi bi-upload"></i></label>
-                                    <input class="form-control" type="file" name="gambar" id="file"
-                                        accept=".png, .jpg, .jpeg">
+                                    <!-- <label class="input-group-text" for="inputGroupFile01"><i
+                                            class="bi bi-upload"></i></label> -->
+                                    <input class="form-control"
+                                        style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                        type="file" name="gambar" id="file" accept=".png, .jpg, .jpeg">
                                 </div>
+                                <small><b class="text-danger">*</b>&nbsp;Harus Berformat .png/.jpg</small>
                             </td>
                         </tr>
 
@@ -199,9 +259,9 @@
                             <td>Status</td>
                             <td>:</td>
                             <td>
-                                <input class="form-check-input" type="radio" name="Status" value="Sudah Menikah">Sudah
+                                <input class="form-check-input" type="radio" name="Status" value="Sudah Menikah">&nbsp;Sudah
                                 Menikah
-                                <input class="form-check-input" type="radio" name="Status" value="Belum Menikah">Belum
+                                <input class="form-check-input" type="radio" name="Status" value="Belum Menikah">&nbsp;Belum
                                 Menikah
                             </td>
                         </tr>
@@ -210,15 +270,34 @@
                             <td>Motivasi</td>
                             <td>:</td>
                             <td>
-                                <textarea class="form-control" cols="20" rows="2" name=moto></textarea>
+                                <textarea class="form-control"
+                                    style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
+                                    cols="20" rows="2" name=moto></textarea>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <tr>
                     <td>
-                        <button class="btn btn-danger" type="button" onclick="capture()"><i
+                        <button class="btn btn-outline-primary" type="button" onclick="capture()"><i
                                 class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button>
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button>
+
+                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Bantuan</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a href="https://wa.me/6285725062515" target="_blank">Hubungi saya</a>. 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </div>
@@ -258,6 +337,66 @@
             link.click();
         });
     }
+</script>
+<script>
+    (() => {
+        'use strict'
+
+        const storedTheme = localStorage.getItem('theme')
+
+        const getPreferredTheme = () => {
+            if (storedTheme) {
+                return storedTheme
+            }
+
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+
+        const setTheme = function (theme) {
+            if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', theme)
+            }
+        }
+
+        setTheme(getPreferredTheme())
+
+        const showActiveTheme = theme => {
+            const activeThemeIcon = document.querySelector('.theme-icon-active')
+            const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+            const iconOfActiveBtn = btnToActive.querySelector('i').dataset.themeIcon
+
+            document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                element.classList.remove('active')
+            })
+
+            btnToActive.classList.add('active')
+            activeThemeIcon.classList.remove(activeThemeIcon.dataset.themeIconActive)
+            activeThemeIcon.classList.add(iconOfActiveBtn)
+            activeThemeIcon.dataset.iconActive = iconOfActiveBtn
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                setTheme(getPreferredTheme())
+            }
+        })
+
+        window.addEventListener('DOMContentLoaded', () => {
+            showActiveTheme(getPreferredTheme())
+
+            document.querySelectorAll('[data-bs-theme-value]')
+                .forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const theme = toggle.getAttribute('data-bs-theme-value')
+                        localStorage.setItem('theme', theme)
+                        setTheme(theme)
+                        showActiveTheme(theme)
+                    })
+                })
+        })
+    })()
 </script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
