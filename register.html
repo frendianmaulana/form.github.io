@@ -143,8 +143,8 @@
                             <td><input class="form-control"
                                     style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
                                     type="text" name="" size="2" placeholder="Masukkan Umur anda">
-                                <small class="fw-bolder"><span class="text-danger">*&nbsp;</span>Contoh: 22 Tahun</small>
-                            </td>
+                                    <small class="fw-lighter"><span class="text-danger">*&nbsp;</span>Contoh: 22 Tahun</small>
+                                </td>
                         </tr>
 
                         <tr>
@@ -250,8 +250,8 @@
                                     <input class="form-control"
                                         style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
                                         type="file" name="gambar" id="file" accept=".png, .jpg, .jpeg">
-                                </div>
-                                <small><b class="text-danger">*</b>&nbsp;Harus Berformat .png/.jpg</small>
+                                    </div>
+                                    <span class="fw-lighter"><b class="text-danger">*</b>&nbsp;Harus Berformat .png/.jpg</span>
                             </td>
                         </tr>
 
@@ -283,14 +283,14 @@
                                 class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button>
                         <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button>
 
-                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                        <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Bantuan</h1>
                                     </div>
                                     <div class="modal-body">
-                                        Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a href="https://wa.me/6285725062515" target="_blank">Hubungi saya</a>. 
+                                        <div class="alert alert-info">Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a class="link-danger link-opacity-50-hover" href="https://wa.me/6285725062515" target="_blank">Hubungi saya</a>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
