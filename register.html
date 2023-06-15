@@ -19,7 +19,7 @@
     .img_size {
         width: 200px;
         height: 200px;
-        border-radius: 50%;
+        border-radius: 100%;
         object-fit: cover;
     }
 
@@ -72,7 +72,7 @@
             <div class="col-sm-7">
                 <div id="container">
                     <h1 class="fs-1 text-center">Biodata Diri</h1>
-                    <img src="#" id="gambar" alt="Foto Saya" class="img_size img-thumbnail mb-3 mx-auto d-block">
+                    <img src="#" id="gambar" class="img_size mb-3 mx-auto d-block">
                     <table class="table table-hover table-responsive">
                         <div class="row mt-4 g-2 align-items-center">
                             <div class="col">
@@ -93,7 +93,7 @@
                             <td>
                                 <input class="form-control"
                                     style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
-                                    type="text" name="" size=30 placeholder="Masukkan nama anda ">
+                                    type="text" name="nama" id="nama" size=30 placeholder="Masukkan nama anda ">
                             </td>
                         </tr>
 
@@ -278,23 +278,24 @@
                         </tr>
                     </table>
                 </div>
-                <tr>
-                    <td>
-                        <button class="btn btn-outline-primary" type="button" onclick="capture()"><i
-                                class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button>
-                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button>
+                <!-- flex -->
+                <div class="hstack gap-3">
+                    <div class="p-2"><button class="btn btn-primary" type="button" onclick="capture()"><i
+                    class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button></div>
+                    <div class="p-2"><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button></div>
+                </div>
 
                         <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Bantuan</h1>
+                                        <h1 class="modal-title fs-3" id="exampleModalLabel">Bantuan</h1>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="alert alert-info">Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a class="link-danger link-opacity-50-hover" href="https://wa.me/6285725062515" target="_blank">Hubungi saya</a>
+                                        <div class="alert alert-info">Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a class="link-primary link-opacity-75-hover" href="https://wa.me/6285725062515" target="_blank"><b>&quot;Hubungi saya&quot;</b></a>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
+                                    <div class="modal-footer">                                        
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
                                     </div>
                                 </div>
                             </div>
@@ -325,7 +326,7 @@
 <script type="text/javascript">
     function capture() {
         var elemen = document.getElementById("container");
-
+        const nama = document.getElementById("nama").value;
         // Menggunakan fungsi `html2canvas` untuk mengambil tangkapan layar
         html2canvas(elemen).then(function (canvas) {
             // Mengonversi tangkapan layar menjadi gambar
@@ -334,7 +335,7 @@
             // Membuat elemen `a` untuk menampilkan gambar dan mengunduhnya
             var link = document.createElement('a');
             link.href = gambar;
-            link.download = 'screenshot.png';
+            link.download = `Screenshot ${nama}.png`;
             link.click();
         });
     }
