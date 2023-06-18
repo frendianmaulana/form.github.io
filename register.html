@@ -93,7 +93,7 @@
                             <td>
                                 <input class="form-control"
                                     style="background-color: var(--bs-primary-border-subtle); color: var(--bs-emphasis-color)"
-                                    type="text" name="nama" id="nama" size=30 placeholder="Masukkan nama anda ">
+                                    type="text" name="nama" id="nama" pattern="^[a-zA-Z]+$" size=30 placeholder="Masukkan nama anda ">
                             </td>
                         </tr>
 
@@ -280,9 +280,20 @@
                 </div>
                 <!-- flex -->
                 <div class="hstack gap-3">
-                    <div class="p-2"><button class="btn btn-primary" type="button" onclick="capture()"><i
-                    class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button></div>
-                    <div class="p-2"><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button></div>
+                    <div class="p-2"><button class="btn btn-primary" id="liveToastBtn" type="button" onclick="capture()"><i
+                        class="bi bi-camera-fill"></i>&nbsp;Take Screenshot</button></div>
+                        <div class="toast-container position-fixed top-0 end-0 p-3">
+                        <div id="liveToast" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <h4>Nama Harus Diisi.....</h4>
+                                </div>
+                                <button type="button" class="btn-close btn-close-white fw-bolder me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="p-2"><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-question"></i>&nbsp;Help</button></div>
+                        <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
                 </div>
 
                         <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -295,11 +306,12 @@
                                         <div class="alert alert-info">Jika kalian punya bug/error/ga bisa dibuka, klik&nbsp;<a class="link-primary link-opacity-75-hover" href="https://wa.me/6285725062515" target="_blank"><b>&quot;Hubungi saya&quot;</b></a>
                                     </div>
                                     <div class="modal-footer">                                        
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Keluar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </td>
                 </tr>
             </div>
@@ -327,19 +339,31 @@
     function capture() {
         var elemen = document.getElementById("container");
         const nama = document.getElementById("nama").value;
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
         // Menggunakan fungsi `html2canvas` untuk mengambil tangkapan layar
-        html2canvas(elemen).then(function (canvas) {
-            // Mengonversi tangkapan layar menjadi gambar
-            var gambar = canvas.toDataURL();
-
-            // Membuat elemen `a` untuk menampilkan gambar dan mengunduhnya
-            var link = document.createElement('a');
-            link.href = gambar;
-            link.download = `Screenshot ${nama}.png`;
-            link.click();
-        });
+        if(nama!=""){
+            html2canvas(elemen).then(function (canvas) {
+                // Mengonversi tangkapan layar menjadi gambar
+                var gambar = canvas.toDataURL();
+                
+                // Membuat elemen `a` untuk menampilkan gambar dan mengunduhnya
+                var link = document.createElement('a');
+                link.href = gambar;
+                link.download = `Screenshot ${nama}.png`;
+                link.click();
+            });
+        }
+        else{
+            if (toastTrigger && toastLiveExample) {
+                const bsToastInstance = new bootstrap.Toast(toastLiveExample);
+                bsToastInstance.show();
+            }
+            //alert("Nama Harus Diisi");
+        }
     }
 </script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script>
     (() => {
         'use strict'
